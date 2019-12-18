@@ -8,7 +8,7 @@ let spot = document.getElementById("spot");
 let answerDisplay = document.getElementById("answer");
 let answerText = document.getElementById("answerText");
 let answers = [
-    "What follows is a series of visual experiments devised by Schopenhauer in his essay, 'On Vision and Colors'. Click next to begin.",
+    "What follows is a series of visual experiments devised by Schopenhauer in his essay, 'On Vision and Colors'. For best results view in a dark room at full brightness. Click next to begin.",
     "You will soon see an image for about 30 seconds followed by a blank screen for 20 seconds. Focus on the image while it is there, and notice what you see when the background changes.",
     "When the image disappeared, you should have seen a black circle on a white background.",
     "When the image disappeared, you should have seen a violet circle on a white background.",
@@ -39,6 +39,9 @@ let showAnswer = () => {
         answerText.innerText = answers[count];
         answerDisplay.className = "answerVisible";
         count++;
+        if (count === experiments.length) {
+            next.className = "next";
+        }
   } else {
       answerText.innerText = answers[count];
       answerDisplay.className = "answerVisible";
@@ -61,8 +64,8 @@ answerDisplay.addEventListener("click", function(event) {
     }
     if(event.target.innerText.toLowerCase() === "next") {
         if(count === experiments.length) {
-            count = 2;
-            currentExperiment();     
+            count = 0;
+            showAnswer();     
         } else if (count > 1) {
             currentExperiment();
         } else {
@@ -73,6 +76,7 @@ answerDisplay.addEventListener("click", function(event) {
         count = 0;
         reset.className = "reset";
         repeat.className = "repeat";
+        next.className = "nextVisible";
         showAnswer();
     }
 })

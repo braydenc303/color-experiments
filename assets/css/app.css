@@ -1,5 +1,6 @@
 body {
     background-color: rgb(128, 128, 128);
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 .answer {
@@ -7,6 +8,7 @@ body {
 }
 
 .answerText {
+    padding-top: 2em;
     font-size: 4em;
     grid-area: head;
     height: 30vh;
@@ -57,7 +59,8 @@ body {
     "bottom-left bottom-center bottom-right";
 }
 
-.next {
+.nextVisible {
+    align-content: center;
     display: block;
     height: 30vh;
     width: 30vw;
@@ -65,7 +68,12 @@ body {
     grid-area: bottom-right;
 }
 
+.next {
+    display: none;
+}
+
 .resetVisible {
+    align-content: center;
     display: block;
     height: 30vh;
     width: 30vw;
@@ -82,11 +90,21 @@ body {
 }
 
 .repeatVisible {
+    align-content: center;
     display: block;
     height: 30vh;
     width: 30vw;
     font-size: 3em;
     grid-area: bottom-left;
+}
+
+p {
+    text-align: center;
+}
+
+p:hover {
+    color: blue;
+    cursor: pointer;
 }
 
 
