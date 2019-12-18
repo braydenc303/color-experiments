@@ -14,18 +14,21 @@ let answers = [
     "When the image disappeared, you should have seen a violet circle on a white background.",
     "When the image disappeared, you should have seen an orange circle on a white background."    
 ]
+let myTimeout;
 
 let showColor = (color) => {
+    clearTimeout(myTimeout);
     console.log( color + " on Black");
     hideAnswer();
     experiment.className = "experimentVisible";
     spot.className = color + " spot";
-    setTimeout(showGrey, 30000);
+    myTimeout = setTimeout(showGrey, 3000);
 }
 
 let showGrey = () => {
+    clearTimeout(myTimeout);
     experiment.className = "experiment";
-    setTimeout(showAnswer, 20000);
+    myTimeout = setTimeout(showAnswer, 2000);
 }
 
 let hideAnswer = () => {
@@ -53,7 +56,7 @@ let experiments = ["white", "white", "white", "yellow", "blue"];
 
 let currentExperiment = () => {
     console.log(count);
-    setTimeout(showColor(experiments[count]), 0005);
+    myTimeout = setTimeout(showColor(experiments[count]), 0005);
 }
 
 answerDisplay.addEventListener("click", function(event) {
@@ -73,6 +76,18 @@ answerDisplay.addEventListener("click", function(event) {
         }
     }
     if(event.target.innerText.toLowerCase() === "reset") {
+        count = 0;
+        reset.className = "reset";
+        repeat.className = "repeat";
+        next.className = "nextVisible";
+        showAnswer();
+    }
+})
+
+document.addEventListener("keyup", function(event) {
+    console.log(event.key);
+    if(event.key === "Escape") {
+        clearTimeout(myTimeout);
         count = 0;
         reset.className = "reset";
         repeat.className = "repeat";
