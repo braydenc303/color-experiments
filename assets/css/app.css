@@ -1,0 +1,92 @@
+body {
+    background-color: rgb(128, 128, 128);
+}
+
+.answer {
+    display: none;
+}
+
+.answerText {
+    font-size: 4em;
+    grid-area: head;
+    height: 30vh;
+    margin-left: 1em;
+}
+
+.experimentVisible {
+    background-color: black;
+    height: 100vh;
+    display: grid;
+    grid-template-areas: 
+    "head head head"
+    "center-left center center-right"
+    "bottom-left bottom-center bottom-right";
+}
+
+.spot {
+    height: 25vh;
+    width: 25vh;
+    margin: auto;
+    grid-area: center;
+    border-radius: 50%;
+}
+
+.white {
+    background-color: white;
+}
+
+.yellow {
+    background-color: yellow;
+}
+
+.blue {
+    background-color: blue;
+}
+
+.experiment {
+    display: none;
+}
+
+.answerVisible {
+    height: 100vh;
+    width: 100%;
+    display: grid;
+    grid-template-areas: 
+    "head head head"
+    "center-left center center-right"
+    "bottom-left bottom-center bottom-right";
+}
+
+.next {
+    display: block;
+    height: 30vh;
+    width: 30vw;
+    font-size: 3em;
+    grid-area: bottom-right;
+}
+
+.resetVisible {
+    display: block;
+    height: 30vh;
+    width: 30vw;
+    font-size: 3em;
+    grid-area: bottom-center;
+}
+
+.reset {
+    display: none;
+}
+
+.repeat {
+    display: none;
+}
+
+.repeatVisible {
+    display: block;
+    height: 30vh;
+    width: 30vw;
+    font-size: 3em;
+    grid-area: bottom-left;
+}
+
+
